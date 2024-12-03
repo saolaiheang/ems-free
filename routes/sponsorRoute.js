@@ -7,13 +7,13 @@ import getidSponsor from '../controllers/getSponsorDetail.js';
 import updateSponsor from '../controllers/updateSponsor.js';
 import deleteSponsor from '../controllers/dalateSponsor.js';
 
-const router = express.Router();
+const sponsorRouter = express.Router();
 
-router.post('/create', createSponsor);
-router.get('/getall', getAllSponsor);
-router.get('/:id', getidSponsor);
-router.put('/update/:id', updateSponsor);
-router.delete('/:id',deleteSponsor);
+sponsorRouter.post('/create', createSponsor);
+sponsorRouter.get('/all', getAllSponsor);
+sponsorRouter.get('/:id', getidSponsor);
+sponsorRouter.put('/:id', updateSponsor);
+sponsorRouter.delete('/:id',deleteSponsor);
 
 
-export default router;
+export default sponsorRouter;
