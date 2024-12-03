@@ -1,29 +1,27 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const SponsorSchema = new mongoose.Schema({
     name:{
         type: String, required: true
     },
     contribution:{
-        type: String, required: true
-    },
-    eventId:{
         type: Number, required: true
     },
+    eventId:{
+        // type:mongoose.Schema.Types.ObjectId,ref:'Event'
+        type:String
+    },
     createBy:{
-        type: String, required: true
+       type:mongoose.Schema.Types.ObjectId,ref:'User'
     },
     updateBy:{
-        type: String, required: true
+        type:mongoose.Schema.Types.ObjectId,ref:'User'
     },
-    createAt:{
-        type: String, required: true
-    },
-    updateBy:{
-        type: String, required: true
-    }
   
-  },) 
-  
-  module.exports = mongoose.model('Sponsor', SponsorSchema);
+  },{
+    timestamps: true }
+);
+  const sponsor=mongoose.model('Sponsor',SponsorSchema);
+  export default sponsor;
   
