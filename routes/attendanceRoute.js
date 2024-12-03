@@ -8,7 +8,7 @@ const {createAttendance,getAllAttendances,getAllAttendanceById,updateAttendance,
 
 
 routerAtt.post('/create',createAttendance);
-routerAtt.get('/getAll',getAllAttendances );
+routerAtt.get('/all',getAllAttendances );
 routerAtt.get('/:id',getAllAttendanceById);
 routerAtt.put('/:id',updateAttendance);
 routerAtt.delete('/:id',deleteAttendance);
