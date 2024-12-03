@@ -12,8 +12,10 @@ const createVenue = async (req, res) => {
             createBy,
             updateBy
         })
-        await createVenue.save();
-        res.status(200).json({ message: 'Create Venue Successfull', createVenue });
+        const result = await createVenue.save();
+        res.status(200).json({ message: 'Create Venue Successfull', result });
+        // const find= await createVenue.findById({}).populate("createBy");
+        // console.log(find);
 
     } catch (error) {
         console.log(error);
@@ -28,8 +30,10 @@ const getAllVenues = async (req, res) => {
             return res.status(400).json({ message: 'All Venues Not Found' });
         }
         res.status(200).json(getAllVenue);
+        console.log(getAllVenue);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' })
+        console.log(error)
     }
 }
 
@@ -55,6 +59,7 @@ const deleteVenue = async (req, res) => {
 
         }
         res.status(200).json({ message: 'delete successfully', deletes });
+        
     } catch (error) {
         console.log(error)
     }
