@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from "dotenv";
 import connectDB from './config/db.js';
 import router from './routes/sponsorRoute.js';
-import router from './routes/venueRouter.js';
+import routerVenue from './routes/venueRouter.js';
 
 dotenv.config();
 const app = express();
@@ -28,7 +28,7 @@ app.post("/endpoint", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.use('/api/venue', router)
+app.use('/api/venue', routerVenue)
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

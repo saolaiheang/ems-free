@@ -24,3 +24,6 @@ const createSponsor = async (req, res) => {
     }
 }
 export default createSponsor;
+
+
+  

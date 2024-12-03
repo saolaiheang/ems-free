@@ -9,8 +9,7 @@ const SponsorSchema = new mongoose.Schema({
         type: Number, required: true
     },
     eventId:{
-        // type:mongoose.Schema.Types.ObjectId,ref:'Event'
-        type:String
+        type:mongoose.Schema.Types.ObjectId,ref:'Event'
     },
     createBy:{
        type:mongoose.Schema.Types.ObjectId,ref:'User'
