@@ -7,6 +7,6 @@ routerVenue.post('/create',createVenue);
 routerVenue.get('/all',getAllVenues);
 routerVenue.get('/:id',getVenueDetail);
 routerVenue.delete('/:id',deleteVenue);
-routerVenue.put('/update/:id',updateVenue);
+routerVenue.put('/:id',updateVenue);
 
 export default routerVenue;
