@@ -16,7 +16,7 @@ import routerVenue from './routes/venueRouter.js';
 dotenv.config();
 app.use(express.json());
 app.use('/api/sponsor',router)
-app.use('/api',eventrouter);
+app.use('/api/event',eventrouter);
 
 connectDB();
 app.use((err, req, res, next) => {
