@@ -1,8 +1,9 @@
-const Attendance = require("../models/attendanceModel");
+// const Attendance = require("../models/attendanceModel");
+import attendanceModel from "../models/attendanceModel.js";
 
-exports.createAttendance = async (req, res) => {
+const createAttendance = async (req, res) => {
   try {
-    const attendance = new Attendance(req.body);
+    const attendance = new attendanceModel(req.body);
     await attendance.save();
     res.status(200).json(attendance);
   } catch (error) {
@@ -10,9 +11,10 @@ exports.createAttendance = async (req, res) => {
   }
 };
 
-exports.getAllAttendances = async (req, res) => {
+
+const getAllAttendances = async (req, res) => {
   try {
-    const attendances = await Attendance.find();
+    const attendances = await attendanceModel.find();
     if (attendances.length === 0) {
       return res.status(404).json({ message: "No Attendances fond" });
     }
@@ -21,10 +23,9 @@ exports.getAllAttendances = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
-
-exports.getAllAttendanceById = async (req, res) => {
+const getAllAttendanceById = async (req, res) => {
   try {
-    const attendance = await Attendance.findById(req.params.id);
+    const attendance = await attendanceModel.findById(req.params.id);
 
     if (!attendance) {
       return res.status(404).json({ error: "Attendance not found" });
@@ -38,10 +39,11 @@ exports.getAllAttendanceById = async (req, res) => {
   }
 };
 
-exports.updateAttendance = async (req, res) => {
+
+const updateAttendance = async (req, res) => {
   try {
     const updateData = req.body;
-    const updateAttendance = await Attendance.findByIdAndUpdate(
+    const updateAttendance = await attendanceModel.findByIdAndUpdate(
       req.params.id,
       updateData,
       { new: true }
@@ -64,9 +66,9 @@ exports.updateAttendance = async (req, res) => {
   }
 };
 
-exports.deleteAttendance = async (req ,res) => {
+const deleteAttendance = async (req ,res) => {
     try{
-        const deleteAttendance = await Attendance.findByIdAndDelete(req.params.id);
+        const deleteAttendance = await attendanceModel.findByIdAndDelete(req.params.id);
         if (!deleteAttendance){
             return res.status(404).json({error:'Attendance not found'});
         }
@@ -75,3 +77,4 @@ exports.deleteAttendance = async (req ,res) => {
         res.status(500).json({error:'Internal server error',details:err.message});
     }
 };
+export default {createAttendance,getAllAttendances,getAllAttendanceById,updateAttendance,deleteAttendance};
