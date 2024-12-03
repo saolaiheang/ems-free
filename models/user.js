@@ -7,5 +7,5 @@ import mongoose from "mongoose";
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
  })
- const user=mongoose.model('User',userSchema);
+ const user=mongoose.model("User",userSchema);
  export default user;
