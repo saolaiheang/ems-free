@@ -6,18 +6,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use('/api/attendance/',routerAtt)
-app.use('/api/attendance/',routerAtt)
-app.use('/api/attendance/',routerAtt)
-app.use('/api/attendance/',routerAtt)
-app.use('/api/attendance/',routerAtt)
+app.use('/api/attendance',routerAtt);
 
 
 import router from './routes/sponsorRoute.js';
 import routerVenue from './routes/venueRouter.js';
 
 dotenv.config();
-const app = express();
 app.use(express.json());
 app.use('/api/sponsor',router)
 

@@ -1,12 +1,15 @@
 // const express = require ('express');
 import express from 'express'
-// import attendanceController from '../controllers/attendanceControllers.js';
-
+// import createAttendance from '../controllers/attendanceControllers.js';
 const routerAtt = express.Router();
+import attendance from '../controllers/attendanceControllers.js';
+const {createAttendance,getAllAttendances,getAllAttendanceById,updateAttendance,deleteAttendance}=attendance;
 
-router.post('/',attendanceController.createAttendance);
-router.get('/', attendanceController.getAllAttendances);
-router.get('/id', attendanceController.getAllAttendanceById);
-router.put('/',attendanceController.updateAttendance);
-router.delete('/',attendanceController.deleteAttendance);
+
+
+routerAtt.post('/create',createAttendance);
+routerAtt.get('/getAll',getAllAttendances );
+routerAtt.get('/:id',getAllAttendanceById);
+routerAtt.put('/:id',updateAttendance);
+routerAtt.delete('/:id',deleteAttendance);
 export default routerAtt;

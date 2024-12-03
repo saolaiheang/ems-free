@@ -1,17 +1,16 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
  
 const attendanceSchema = new mongoose.Schema({
     username: {type:String, required:true, unique:true},
-    email: {type:String, required:true, unique:true},
-    eventID: {type:Schema.Types.ObjectId, ref: 'Event'},
-    createdBy: { type:Schema.Types.ObjectId, ref: 'User'},
-    updatedBy: { type:Schema.Types.ObjectId, ref: 'User'},
+    email: {type:String,},
+    eventID: {type:String},
+    createdBy: { type:mongoose.Types.ObjectId, ref: 'User'},
+    updatedBy: { type:mongoose.Types.ObjectId, ref: 'User'},
 },
 {
     timestamps:true,
 });
-
-
-
-module.exports = mongoose.model("Attendance", attendanceSchema);
+const attSchema= mongoose.model("Attendance", attendanceSchema);
+export default attSchema;
 
