@@ -5,7 +5,7 @@ const eventrouter = express.Router();
 
 
 
-eventrouter.post('/create ',createEvent);
+eventrouter.post('/create',createEvent);
 eventrouter.get('/all',getAllEvents);
 eventrouter.get('/:id',getEventByid);
 eventrouter.put('/:id',updateEvent);

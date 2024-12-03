@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const eventSchema = new mongoose.Schema(
   {
-    name: { type: String, max: [200],min:[8], require: true },
+    name: { type: String, require: true },
     date: { type: String, require: true },
     description: { type: String, require: true },
     venueid: { type: mongoose.Schema.Types.ObjectId, ref: "Venue" },
@@ -10,7 +10,7 @@ const eventSchema = new mongoose.Schema(
     createdBy :{ type: mongoose.Schema.Types.ObjectId, ref: "User" },
     updatedBy :{ type: mongoose.Schema.Types.ObjectId, ref: "User" },
   },
-  { TimeRanges: true }
+  { timestamps: true }
 );
 
 const eventModels = mongoose.model("Event",eventSchema)
