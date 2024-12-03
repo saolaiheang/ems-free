@@ -9,8 +9,6 @@ const vanueSchema= new Schema({
     updateBy:{type:String,require:true},
     
 
-
-
 },
 {
     timestamps:true
