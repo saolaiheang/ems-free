@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from "dotenv";
 import connectDB from './config/db.js';
+
 import routerAtt from './routes/attendanceRoute.js';
 import router from './routes/sponsorRoute.js';
 import routerVenue from './routes/venueRouter.js';
@@ -10,7 +11,6 @@ dotenv.config();
 connectDB();
 const app = express();
 app.use(express.json());
-
 app.use('/api/attendance',routerAtt);
 app.use('/api/sponsor',router);
 app.use('/api/event',eventrouter);
